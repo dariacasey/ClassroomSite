@@ -121,6 +121,7 @@ celerybeat.pid
 *.sage.py
 
 # Environments
+envir
 .env
 .venv
 env/
@@ -158,6 +159,11 @@ cython_debug/
 .DS_Store?
 .AppleDouble
 __MACOSX/
+
+# My computer
+ProjectReport.pdf
+djangoProject.zip
+
 
 # PyCharm
 #  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
