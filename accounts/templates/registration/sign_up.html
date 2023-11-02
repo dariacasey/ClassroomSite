@@ -1,0 +1,67 @@
+{% extends 'home/base.html' %}
+{% block title %}Create an Account{% endblock %}
+{% block content %}
+
+{% if form.errors %}
+<div class="alert alert-light alert-dismissible fade show" role="alert">
+  There was an error with your form...
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endif %}
+
+<section class="vh-100 d-flex justify-content-center align-items-center" style="background-color: #E8E1E5;">
+  <div class="container">
+    <div class="row justify-content-center align-items-center" style="height: 100vh;">
+      <div class="col-md-6 col-lg-6">
+        <div class="card" style="border-radius: 1rem;">
+          <div class="card-body p-4 p-lg-5 text-black">
+            <h1 class="fw-bold mb-4 text-center">Sign Up</h1>
+            <form action="{% url 'signUp' %}" method="POST" class="d-flex flex-column">
+              {% csrf_token %}
+              <div class="form-outline mb-4">
+                {{ form.username.label_tag }}
+                {{ form.username }}
+              </div>
+              <div class="form-outline mb-4">
+                {{ form.password1.label_tag }}
+                {{ form.password1 }}
+              </div>
+              <div class="form-outline mb-4">
+                {{ form.password2.label_tag }}
+                {{ form.password2 }}
+              </div>
+              <div class="form-outline mb-4">
+                {{ form.email.label_tag }}
+                {{ form.email }}
+              </div>
+              <div class="form-outline mb-4">
+                {{ form.first_name.label_tag }}
+                {{ form.first_name }}
+              </div>
+              <div class="form-outline mb-4">
+                {{ form.last_name.label_tag }}
+                {{ form.last_name }}
+              </div>
+              <div class="form-outline mb-4">
+                {{ form.is_student.label_tag }}
+                {{ form.is_student }}
+              </div>
+              <div class="form-outline mb-4">
+                {{ form.is_teacher.label_tag }}
+                {{ form.is_teacher }}
+              </div>
+              <div class="pt-1 mb-4">
+                <button class="btn btn-custom btn-lg btn-block" type="submit">Submit</button>
+                <br/>
+                <a class="small text-muted" href="{% url 'login' %}">Already have an account?</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
+

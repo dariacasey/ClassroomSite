@@ -1,0 +1,42 @@
+{% extends 'home/base.html' %}
+{% block title %}Home{% endblock %}
+{% block content %}
+
+  <div class="container">
+    <h1>Posts</h1>
+    <p class="custom-text">Post Count: {{ post_count }}</p>
+    <div class="row">
+      {% for post in object_list %}
+        <div class="col-md-11">
+          <div class="post-card">
+            {% if post.date_created > user.profile.last_logout_time %}
+                <span class="badge badge-success">New!</span>
+            {% endif %}
+            <h2>{{ post.title }}</h2>
+            <p class="custom-text">By {{ post.author }}</p>
+            <p class="custom-text">Views: {{ post.views }}</p>
+            <div class="card-button">
+              <a href="{% url 'article-detail' post.pk %}" class="btn btn-custom">Read More</a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const postCards = document.querySelectorAll(".post-card");
+
+        postCards.forEach(function (card) {
+            card.addEventListener("click", function () {
+                card.setAttribute("data-new", "false");
+                const badge = card.querySelector(".badge-success");
+                if (badge) {
+                    badge.remove();
+                }
+            });
+        });
+    });
+</script>
+{% endblock %}

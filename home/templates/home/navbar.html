@@ -1,0 +1,68 @@
+<!-- creating link to something else in navbar is at 16:30 in
+    templates video -->
+<nav class="navbar navbar-expand-lg navbar-light">
+ <a class="navbar-brand" href="{% url 'home' %}">Website</a>
+ <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+   <span class="navbar-toggler-icon"></span>
+ </button>
+
+
+ <div class="collapse navbar-collapse" id="navbarSupportedContent">
+   <ul class="navbar-nav ml-auto">
+     <li class="nav-item">
+       <a class="nav-link" href="{% url 'home' %}">Home</a>
+     </li>
+
+
+     {% if user.is_authenticated %}
+       <li class="nav-item">
+         <a class="nav-link" href="{% url 'logout_user' %}">Logout</a>
+       </li>
+       <li class="nav-item">
+         <a class="nav-link" href="{% url 'password_reset' %}">Reset Password</a>
+       </li>
+       <li class="nav-item dropdown">
+       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Teacher Stuff
+       </a>
+       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+         <a class="dropdown-item" href="{% url 'create_class' %}">Create a Class </a>
+         <a class="dropdown-item" href="#">Create a Lesson</a>
+         <div class="dropdown-divider"></div>
+         <a class="dropdown-item" href="{% url 'teacher_progress' %}">Progress Page</a>
+       </div>
+       <li class="nav-item dropdown">
+       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Student Stuff
+       </a>
+       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+         <a class="dropdown-item" href="{% url 'join_class' %}">Join a Class </a>
+         <a class="dropdown-item" href="{% url 'all_lessons' %}">Lessons</a>
+         <div class="dropdown-divider"></div>
+         <a class="dropdown-item" href="#">Something else here</a>
+       </div>
+        <li class="nav-item">
+          <div class="post-button-container">
+            <a class="nav-link" href="{% url 'add_post' %}">Post</a>
+          </div>
+        </li>
+        <li class="nav-item">
+            <form class="d-flex" method=POST action="{% url 'search' %}">
+                {% csrf_token %}
+                </br>
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="searched">
+            <button class="btn btn-custom" type="submit">Search</button>
+      </form>
+    </li>
+     {% else %}
+       <li class="nav-item">
+         <a class="nav-link" href="{% url 'signUp' %}">Sign Up</a>
+       </li>
+       <li class="nav-item">
+         <a class="nav-link" href="{% url 'login' %}">Login</a>
+       </li>
+     {% endif %}
+     </li>
+   </ul>
+ </div>
+</nav>

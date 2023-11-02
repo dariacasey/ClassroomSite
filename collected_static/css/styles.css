@@ -1,0 +1,40 @@
+/* Default styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+h1, h2, h3 {
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Navigation */
+.navbar {
+    background-color: #0074e4;
+    color: white;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+
+.custom-navbar {
+    background-color: #6A2B56; /* Change to the desired background color */
+}
+
+.custom-navbar a {
+    color: white; /* Change to the desired text color */
+}
+
+
+
+/* Responsive design */
+@media (max-width: 768px) {
+    /* Add responsive styles for smaller screens */
+}
