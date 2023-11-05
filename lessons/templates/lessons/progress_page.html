@@ -3,15 +3,30 @@
 {% block content %}
   <h1>Grades</h1>
 
-<br/><br/>
-{% for exercise_set, scores in exercise_set_scores.items %}
-<h2>{{ exercise_set.lesson.title }}</h2>
-<ul>
-    {% for score in scores %}
-        <li>Attempt {{ forloop.counter }}: Score - {{ score.score }}%</li>
-    {% endfor %}
-</ul>
-{% endfor %}
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Lesson</th>
+        <th>Final Score</th>
+        <th>Attempt Scores</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for lesson_score in lesson_scores %}
+        <tr>
+          <td>{{ lesson_score.lesson.title }}</td>
+          <td>{{ lesson_score.final_score }}%</td>
+          <td>
+            <ul>
+              {% for score in lesson_score.scores %}
+                <li>{{ forloop.counter }} - {{ score.score }}%</li>
+              {% endfor %}
+            </ul>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 
-    <p><a href="{% url 'home' %}" class="btn btn-custom">Back to Home</a></p>
+  <p><a href="{% url 'home' %}" class="btn btn-custom">Back to Home</a></p>
 {% endblock %}

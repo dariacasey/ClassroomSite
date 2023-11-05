@@ -28,7 +28,7 @@ h1, h2, h3 {
     color: #392D29;
 }
 
-/* Post Card Things */
+/* Post Card */
 .post-button-container{
   background-color: #ffff; /* Change to your desired background color */
   padding: 3px 20px; /* Adjust padding as needed */
@@ -65,7 +65,7 @@ h1, h2, h3 {
   text-decoration: none;
 }
 
-/* post indicator */
+/* Post indicator */
 .badge-success {
     background-color: #3B2978;
     color: white;
@@ -86,7 +86,15 @@ h1, h2, h3 {
     letter-spacing: 1px;
 }
 
-/* Custom button */
+.custom-text-lower {
+    font-family: 'Albert Sans', sans-serif;
+    font-size: 0.7rem;
+    font-style: normal;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+/* Buttons */
 .btn-custom {
     background-color: #ffff;
     border-color: #392D29;
@@ -96,6 +104,19 @@ h1, h2, h3 {
 .btn-custom:hover {
     text-decoration: underline;
 }
+/* create post button */
+.btn-oval {
+    background-color: #ffff;
+    border-color: #392D29;
+    color: #392D29;
+    border-radius: 20px
+}
+
+.btn-oval:hover {
+    background-color: #392D29; /* Change color on hover */
+    color: #fff
+}
+
 
 .center-content {
     text-align: center; /* Center align text */
@@ -147,3 +168,83 @@ h1 {
     background-color: #0056b3;
     border-color: #0056b3;
 }
+
+/* Styling for Lesson Detail Page */
+.lesson-container {
+  text-align: left; /* Align content to the left */
+  padding: 20px; /* Add some spacing around the content */
+}
+
+.centered {
+  text-align: center; /* Center the text horizontally */
+}
+
+.video-container {
+  text-align: center; /* Center the video horizontally */
+  width: 100%; /* Ensure the video container takes the full width */
+}
+
+/* Styling for Class Pages. TAKEOUT AFTER YOU CHECK THIS. UGLY*/
+/* Style for the class detail container */
+.class-detail-container {
+    text-align: center;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Style for the class detail title */
+.class-detail-title {
+    font-size: 24px;
+    margin-top: 0;
+}
+
+/* Style for the class name */
+.class-name {
+    font-size: 20px;
+    color: #333;
+}
+
+/* Style for teacher info */
+.teacher-info {
+    font-size: 16px;
+    color: #666;
+}
+
+/* Style for class code */
+.class-code {
+    font-size: 16px;
+    color: #666;
+}
+
+/* Style for the edit class details title */
+.edit-class-details-title {
+    font-size: 18px;
+    margin-top: 20px;
+    color: #007bff;
+}
+
+/* Style for the class edit form */
+.class-edit-form {
+    text-align: left;
+}
+
+
+/* Style for the Class not found message */
+.class-not-found {
+    font-size: 16px;
+    color: #ff0000;
+}
+
+/* Sign Up Form */
+.form-check{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+

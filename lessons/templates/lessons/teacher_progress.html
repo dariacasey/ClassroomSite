@@ -1,13 +1,13 @@
 {% extends "home/base.html" %}
 {% block content %}
-{% if user.profile.is_teacher %}
-  <h1>Teacher's Grade Summary</h1>
+  <h1>Class Grade Summary</h1>
   <table class="table table-striped">
     <thead>
       <tr>
         <th>Lesson</th>
         <th>Student</th>
-        <th>Score</th>
+        <th>Final Score</th>
+        <th>Attempt Scores</th>
       </tr>
     </thead>
     <tbody>
@@ -16,16 +16,29 @@
           <td>{{ lesson_score.lesson.title }}</td>
           <td></td>
           <td></td>
+          <td></td>
         </tr>
         {% for student_score in lesson_score.student_scores %}
           <tr>
             <td></td>
             <td>{{ student_score.student.username }}</td>
-            <td>{{ student_score.score }}%</td>
+            <td>
+              {% for final in lesson_score.final_scores %}
+                {% if final.student == student_score.student %}
+                  {{ final.final_score }}%
+                {% endif %}
+              {% endfor %}
+            </td>
+            <td>
+              <ul>
+                {% for score in student_score.scores %}
+                  <li>{{ forloop.counter }}: {{ score.score }}%</li>
+                {% endfor %}
+              </ul>
+            </td>
           </tr>
         {% endfor %}
       {% endfor %}
     </tbody>
   </table>
-{% endif %}
 {% endblock %}

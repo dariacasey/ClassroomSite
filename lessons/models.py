@@ -37,6 +37,8 @@ class StudentScore(models.Model):
     student = models.ForeignKey(User, on_delete=models.CASCADE)
     exercise_set = models.ForeignKey(ExerciseSet, on_delete=models.CASCADE)
     score = models.DecimalField(max_digits=5, decimal_places=2)
+    final_score = models.DecimalField(max_digits=5, decimal_places=2, default=0)
+
 
     def __str__(self):
         return f"Score for {self.student.username} in ExerciseSet {self.exercise_set.id}"

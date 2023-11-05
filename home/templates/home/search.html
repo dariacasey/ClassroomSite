@@ -3,27 +3,37 @@
 {% block content %}
 <center>
     {% if searched %}
-        <h1>Search Results For "{{searched}}"</h1>
-        <br/>
-    </center>
-    {% for result in results %}
-        <div class="col-md-11">
-            <div class="post-card">
-                <h2>{{ result.title }}</h2>
-                {% if result.type == 'post' %}
-                    <p class="custom-text">By: {{ result.author }}</p>
-                    <p class="custom-text">Views: {{ result.views }}</p>
-                    <a href="{% url 'article-detail' result.pk %}" class="btn btn-custom">Read More</a>
-                {% elif result.type == 'comment' %}
-                    <p class="custom-text">Comment by {{ result.author }}</p>
-                    <a href="{% url 'article-detail' result.post.pk %}" class="btn btn-custom">View Post</a>
-                {% elif result.type == 'lesson' %}
-                    <a href="{% url 'lesson_detail' result.pk %}" class="btn btn-custom">View Lesson</a>
-                {% endif %}
-            </div>
-        </div>
-    {% endfor %}
+        {% if results %}
+            <h1>Search Results for "{{searched}}"</h1>
+            <br/>
+            </center>
+            {% for result in results %}
+                <div class="col-md-11">
+                    <div class="post-card">
+                        <h2>{{ result.title }}</h2>
+
+                        {% if result.type == 'post' %}
+                            <p class="custom-text">By: {{ result.author }}</p>
+                            <p class="custom-text">Views: {{ result.views }}</p>
+                            <p class="custom-text-lower">{{ result.body|safe|truncatewords:20 }}</p>
+                            <a href="{% url 'article-detail' result.pk %}" class="btn btn-custom">View Post</a>
+
+                        {% elif result.type == 'comment' %}
+                            <h2>Comment</h2>
+                            <p class="custom-text">Comment by {{ result.author }}</p>
+                            <a href="{% url 'article-detail' result.post.pk %}" class="btn btn-custom">View Post</a>
+
+                        {% elif result.type == 'lesson' %}
+                            <p class="custom-text-lower">{{ result.content|safe|truncatewords:20 }}</p>
+                            <a href="{% url 'lesson_detail' result.pk %}" class="btn btn-custom">View Lesson</a>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <h1>No Results for "{{searched}}"</h1>
+        {% endif %}
     {% else %}
-        <h1>Search Results For " "</h1>
+        <h1>Search Results for " "</h1>
     {% endif %}
 {% endblock%}

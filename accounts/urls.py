@@ -5,7 +5,8 @@ from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path("login_user/", views.login_user, name="login"),
-    path("signUp_user/", views.signUp_user, name="signUp"),
+    # I changed this path and rn its fine but if something happens this is probably the issue
+    path("register/", views.signUp_user, name="signUp"),
     # If the name for this is just logout, it takes you to the Django administration logout page instead of redirecting
     # correctly
     path("logout_user/", views.logout_user, name="logout_user"),

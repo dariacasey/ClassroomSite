@@ -1,11 +1,7 @@
 {% extends 'home/base.html' %}
-
-
+{% block title %}Lesson Questions{% endblock %}
 {% block content %}
-<title>{{ lesson.title }}</title>
-<body>
-   <h1>{{ lesson.title }}</h1>
-   <p>{{ lesson.content }}</p>
+
     {% if message %}
         <div class="alert alert-light alert-dismissible fade show">
         {{ message }}
@@ -29,13 +25,13 @@
                     {{ exercise.option_3 }}
                 </label><br>
             </fieldset>
+            <br/><br/>
             {% endfor %}
             <br/>
             <input type="submit" class="btn btn-custom" value="Submit Answers">
             <br/><br/>
         </form>
     {% endif %}
-
 
 {% endblock %}
 

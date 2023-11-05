@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import user_passes_test
 from .models import Class
-import uuid
 from .forms import ClassCreationForm, ClassForm, JoinClass
 from accounts.models import Profile
 from lessons.models import Lesson
@@ -19,19 +18,20 @@ def create_class(request):
             class_name = form.cleaned_data['class_name']
             teacher = request.user
             # Generates code
-            class_code = uuid.uuid4()
-            # Creates class
-            new_class = Class(name=class_name, teacher=teacher, class_code=class_code)
-            new_class.save()
+            new_class = Class(name=class_name, teacher=teacher)
+            new_class.save()  # This will automatically generate the class code
+
             # Updates teachers profile
             teacher_profile = Profile.objects.get(user=teacher)
             teacher_profile.class_field = new_class
             teacher_profile.save()
-            # Associates 3 pre-made lessons with every class
+
+            # Associates 4 pre-made lessons with every class
             # I have them associated because I want teachers to be able to create their own in the future
             pre_made_lessons = Lesson.objects.filter(title__in=["Quadratic Equations and Their Solutions",
                                                                 "Exploring Symbolism in Literature",
-                                                                "Photosynthesis: Nature's Energy Conversion Process"])
+                                                                "Photosynthesis: Nature's Energy Conversion Process",
+                                                                "The Art of Effective Writing"])
             new_class.lessons.set(pre_made_lessons)
 
             return redirect('class_detail', class_id=new_class.id)

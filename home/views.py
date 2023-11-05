@@ -110,6 +110,7 @@ class AddCommentView(CreateView):
     success_url = reverse_lazy('home')
 
     def form_valid(self, form):
+        form.instance.author = self.request.user
         form.instance.post_id = self.kwargs['pk']
         return super().form_valid(form)
 
@@ -120,6 +121,7 @@ def search_view(request):
 
     if request.method == "POST":
         searched = request.POST['searched']
+
         if user_type == 'student':
             post = Post.objects.filter(class_field__students=user, title__contains=searched)
             comment = Comment.objects.filter(body__contains=searched)
@@ -136,12 +138,23 @@ def search_view(request):
             for lesson in lesson:
                 lesson.type = 'lesson'
                 results.append(lesson)
+
         elif user_type == 'teacher':
             post = Post.objects.filter(class_field__teacher=user, title__contains=searched)
             comment = Comment.objects.filter(body__contains=searched)
             lesson = Lesson.objects.filter(title__contains=searched)
-            results = list(post) + list(comment) + list(lesson)
-            print(results)
+            results = []
+            for post in post:
+                post.type = 'post'
+                results.append(post)
+
+            for comment in comment:
+                comment.type = 'comment'
+                results.append(comment)
+
+            for lesson in lesson:
+                lesson.type = 'lesson'
+                results.append(lesson)
         return render(request, 'home/search.html', {'searched': searched, 'results': results})
     else:
         return render(request, 'home/search.html', {})

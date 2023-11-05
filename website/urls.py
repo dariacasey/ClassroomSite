@@ -16,4 +16,4 @@ urlpatterns = [
     # is the name not an error?
     path('classes/', include("classes.urls"), name='create_class'),
     path('lessons/', include('lessons.urls')),
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
