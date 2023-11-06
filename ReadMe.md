@@ -3,7 +3,7 @@
 This ongoing project is a web platform built using the Django framework that is meant to help organize the classroom experience. It includes features like a communal wall for posts, multimedia lessons, and graded multiple choice questions. Each lesson contains videos and text, followed by interactive quizzes that offer up to three attempts. Students can track their progress with individual lesson grades, while teachers can monitor their students' performance. The site also features classroom enrollment by allowing teachers to create classes and provide students with unique access codes to use to be placed in their virtual classrooms.
 
 ## Demo
-
+The UI has been changed since launching this. The core functionalities are mostly the same, but more have been implemented. The live site will be updated soon.
 [Website](https://dariacasey.pythonanywhere.com/)
 
 ## About
