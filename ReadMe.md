@@ -3,7 +3,7 @@
 This project is a web platform built using the Django framework. It is meant to help organize the classroom experience. It includes features like a communal wall for posts, multimedia lessons, and graded multiple choice questions. Each lesson contains videos and text, followed by interactive quizzes that offer up to three attempts. Students can track their progress with individual lesson grades, while teachers can monitor their students' performance. The site also features classroom enrollment by allowing teachers to create classes and provide students with unique access codes to use to be placed in their virtual classrooms.
 
 ## Demo
-The UI has been changed since launching this. The core functionalities are mostly the same, but more have been implemented. The live site will be updated soon.
+The UI has been changed since launching this. The core functionalities are mostly the same, but more have been implemented.
 [Website](https://dariacasey.pythonanywhere.com/)
 
 ## Features
@@ -18,6 +18,9 @@ The UI has been changed since launching this. The core functionalities are mostl
 - Classroom grade statistics
  
 ## Visual Overview 
+Registration: 
+<img width="1440" alt="Screenshot 2024-04-07 at 11 27 49 PM" src="https://github.com/dariacasey/ClassroomSite/assets/128617643/fd0b3856-d019-49fa-93eb-41e17b011988">
+
 Discussion Wall: 
 <img width="1440" alt="Screenshot 2023-12-29 at 5 41 03 PM" src="https://github.com/dariacasey/ClassroomSite/assets/128617643/e62a4cbc-3ea0-479c-8d3c-5385df739f88">
 
@@ -29,6 +32,13 @@ Multiple Choice Questions:
 
 Post Detail: 
 <img width="1440" alt="Screenshot 2023-12-29 at 5 44 00 PM" src="https://github.com/dariacasey/ClassroomSite/assets/128617643/ea5f1a5f-c29c-443e-85c2-b9e6455df593">
+
+Search Results: 
+<img width="1439" alt="Screenshot 2024-04-07 at 11 24 28 PM" src="https://github.com/dariacasey/ClassroomSite/assets/128617643/095e4a3f-bb57-4bcf-8850-8aa5c2c18d97">
+
+Student Grade View: 
+<img width="1440" alt="Screenshot 2024-04-07 at 11 22 21 PM" src="https://github.com/dariacasey/ClassroomSite/assets/128617643/34d2ea76-2c0b-4dfb-af48-7dbd596419cf">
+
 
 ## Installation
 Pre-requisites: \
