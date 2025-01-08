@@ -4,7 +4,6 @@ This project is a web platform built using the Django framework. It is meant to 
 
 ## Demo
 The UI has been changed since launching this. The core functionalities are mostly the same, but more have been implemented.
-[Website](https://dariacasey.pythonanywhere.com/)
 
 ## Features
 - Login/registration 
